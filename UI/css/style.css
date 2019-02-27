@@ -50,6 +50,7 @@ label {
     width: 100%;
     color: #2892D7;
     margin-bottom: 10px;
+    justify-content: space-around;
 }
 
 .logo {
