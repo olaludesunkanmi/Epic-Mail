@@ -1,0 +1,73 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>EPIC MAIL</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="header">
+        <a href="index.html" class="logo">EPIC MAIL</a>
+        <a href="signup.html" class="nav-links">SIGN UP</a>
+        <a href="profile.html" class="nav-links">PROFILE</a>
+        <a href="signin.html" class="nav-links">LOG OUT</a>
+    </div>
+    <div class="container">
+        <div class="menu">
+            <div class="compose"><a href="#">Compose</a></div>
+            <div class="menu-list">
+                <ul> 
+                    <li><a href="#">Inbox</a></li>
+                    <li><a href="#">Sent</a></li>
+                    <li><a href="#">Draft</a></li>
+                    <li><a href="#">Group</a></li>
+                    <li><a href="#">Trash</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="content">
+            <div class="card">
+                <img src="img/profile.jpg" alt="user image">
+                <form action="#">
+                    <input type="file" name="myFile"><br><br>
+                    <button>Submit</button>
+                  </form>
+                <p><button id="myBtn">Password Reset</button></p>
+            </div>
+
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">X</span>
+                </div>
+                <div class="modal-body">
+                    <form class="form-box">
+                        <label for="password">Password</label>
+                        <input type="password" class="password-field" name="password" placeholder="your password" required><br>
+                        <label for="password">Repeat Password</label>
+                        <input type="password" class="password-field" name="password" placeholder="repeat password" required><br>
+                        <button class="btn">Create</button> 
+                    </form>
+                </div>
+                <div class="modal-footer"></div>
+                </div>
+            
+            </div>
+  
+        </div>
+
+        <div class="footer">
+            <div class="copyright">
+                <span>&copy; 2019 Andela. All rights reserved.</span>
+            </div>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>
