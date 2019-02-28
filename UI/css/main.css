@@ -307,3 +307,19 @@ label {
 .message-container>h2 {
     margin-bottom: 10px;
 }
+
+/* Draft Messages */
+.draft-btn {
+    display: none;
+    background-color: rgba(60, 14, 230, 0.904);
+    padding: 6px;
+    color: #ffffff;
+    border-radius: 15px;
+    width: 80px;
+    height: 30px;
+    margin-left: 80px;
+}
+
+.inbox-container>ul>li:hover>button {
+    display: inline;
+}
