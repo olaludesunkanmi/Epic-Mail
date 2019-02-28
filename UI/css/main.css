@@ -259,10 +259,25 @@ label {
 }
 
 /* inbox section */
+.inbox-container {
+    margin: 0 auto;
+}
+
 .inbox-container>ul {
     list-style-type: none;
 }
 
 .inbox-container>ul>li {
     line-height: 40px;
+}
+
+/* messages section */
+.message-container {
+    margin: 0 auto;
+    text-align: center;
+    width: 80%;
+}
+
+.message-container>h2 {
+    margin-bottom: 10px;
 }
