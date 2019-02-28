@@ -45,10 +45,11 @@ label {
 }
 .header {
     display: inline-block;
+    background-color: #893168;
     height: 80px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     width: 100%;
-    color: #2892D7;
+    color: #ffffff;
     margin-bottom: 10px;
     justify-content: space-around;
 }
@@ -58,17 +59,17 @@ label {
     font-size: 30px;
     font-weight: bold;
     margin: 30px;
-    color: #2892D7;
+    color: #ffffff;
 }
 
-.signin {
+.log {
     float: right;
     text-decoration: none;
     margin: 20px;
-    color: #2892D7;
+    color: #ffffff;
 }
 
-.signin:hover {
+.log:hover {
     background: transparent;
     color: #ffffff;
     background-color: rgba(60, 14, 230, 0.904);
@@ -81,12 +82,14 @@ label {
     padding: 10px;
     color: #ffffff;
     border-radius: 15px;
+    width: 25%;
 }
 
 .btn:hover {
-    background: transparent;
-    color: #2892D7;
+    background-color: rgba(60, 14, 230, 0.904);
+    color: #ffffff;
   }
+
   .button:active {
     opacity: 0.5;
   }
@@ -94,7 +97,7 @@ label {
 footer {
     margin-top: 50px;
     text-align: center;
-    color: black;
+    color: brown;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     height: 40px;
 }

@@ -228,18 +228,22 @@
     padding: 10px;
     color: #ffffff;
     border-radius: 15px;
-    width: 40%;
+    width: 25%;
 }
 
 .btn:hover {
-    background: transparent;
-    color: #2892D7;
+    background-color: rgba(60, 14, 230, 0.904);
+    color: #ffffff;
   }
+
   .button:active {
     opacity: 0.5;
   }
 
-input[type="password"] {
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  select {
     width: 80%;
     height: 40px;
     margin-bottom: 20px;
@@ -252,3 +256,5 @@ label {
     display: block;
     margin-bottom: 4px;
 }
+
+/* group section */
