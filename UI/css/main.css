@@ -110,6 +110,10 @@
     border-bottom: 1px solid #893168;
 }
 
+.menu-list ul li a:active {
+    opacity: 0.5;
+    border-bottom: 1px solid #893168;
+}
 
 
 .content {
@@ -129,6 +133,7 @@
 .copyright {
     margin-top: 10px;
 }
+
 
 /* Profile Page */
 .card {
