@@ -258,4 +258,11 @@ label {
     margin-bottom: 4px;
 }
 
-/* group section */
+/* inbox section */
+.inbox-container>ul {
+    list-style-type: none;
+}
+
+.inbox-container>ul>li {
+    line-height: 40px;
+}
