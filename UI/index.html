@@ -1,79 +1,38 @@
-<!DOCTYPE <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>EPIC MAIL</title>
+    <title>Sign Up</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css"/>
+    <script src="main.js"></script>
 </head>
 <body>
     <div class="header">
-        <div class="nav-logo">
         <a href="index.html" class="logo"><h2>EPIC MAIL</h2></a>
-        </div>
-        <div class="search-field">
-        <input type="text" class="input-search-field" placeholder="Find messages"></i>
-        </div>
-        <div class="nav-bar">
-            <ul class="dropdown">
-                <a href="#"><h4 class="profile">Profile</h4></a> 
-                <div class="dropdown-content">
-                    <a href="profile.html" class="reset-password">Account Info</a>
-                    <a  href="#" id="myBtn">Reset Password</a>
-                    <a href="signin.html">Signout</a>
-                </div>
-            </ul>
-        </div>
     </div>
-    <div class="container">
-        <div class="menu">
-            <div class="compose"><a href="compose.html">Compose</a></div>
-            <hr>
-            <div class="menu-list">
-                <ul> 
-                    <li><a href="inbox.html">Inbox</a></li>
-                    <li><a href="sent.html">Sent</a></li>
-                    <li><a href="draft.html">Draft</a></li>
-                    <li><a href="group.html">Group</a></li>
-                    <li><a href="trash.html">Trash</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="content">
-            <!-- The Modal -->
-            <div id="myModal" class="modal">
 
-                    <!-- Modal content -->
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <span class="close">X</span>
-                    </div>
-                    <div class="modal-body">
-                        <h2>Reset Password</h2>
-                        <form class="form-box">
-                            <label for="password">Old Password</label>
-                            <input type="password" class="password-field" name="password" placeholder="old password" required><br>
-                            <label for="password">New Password</label>
-                            <input type="password" class="password-field" name="password" placeholder="new password" required><br>
-                            <label for="password">Confirm Password</label>
-                            <input type="password" class="password-field" name="password" placeholder="repeat password" required><br>
-                            <button class="btn">Reset</button> 
-                        </form>
-                    </div>
-                    <div class="modal-footer"></div>
-                    </div>
-                
+    <div class="form-container">
+        <form action="home.html" class="form-box">
+            <div class="form-title">
+                <h2>SIGN IN</h2>
             </div>
-                            
-        </div>
-        <div class="footer">
-            <div class="copyright">
-                <span>&copy; 2019 Andela. All rights reserved.</span>
-            </div>
-        </div>
+
+            <label for="email">Email</label>
+            <input type="email" class="email-field" name="email" placeholder="name@name.com" required><br>
+            <label for="password">Password</label>
+            <input type="password" class="password-field" name="password" placeholder="xxxxxx" required><br>
+            <button class="btn">SIGN IN</button> 
+            <p class="form-paragraph">Don't have an account yet?<em><a href="signup.html" class="log">Sign Up</a></em></p>
+        </form>
     </div>
-    <script src="js/main.js"></script>
+
+    <footer>
+        <div class="copyright">
+        <span>&copy; 2019 Andela. All rights reserved.</span>
+        </div>
+    </footer>
+        
 </body>
 </html>
