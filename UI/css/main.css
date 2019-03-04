@@ -84,11 +84,19 @@ Body Container
     background-color: #292f50;
     text-align: center;
   }
+<<<<<<< HEAD
 
   .copyright  {
       margin: 20px;
   }
 
+=======
+
+  .copyright  {
+      margin: 20px;
+  }
+
+>>>>>>> gh-pages
   .compose {
       width: 80%;
       margin: 12px;
@@ -168,6 +176,7 @@ button, .btn {
 background-color: green;
 color: white;
 padding: 12px;
+<<<<<<< HEAD
 width: 15%;
 border: none;
 cursor: pointer;
@@ -243,22 +252,112 @@ Inbox, Sent, etc
     display: inline;
 }
 
+=======
+border: none;
+cursor: pointer;
+border-radius: 5px;
+}
+
+.draft-btn {
+    display: none;
+    background-color: green;
+    color: white;
+    padding: 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 40px;
+}
+
+.create-btn {
+    margin-top: 5px;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+/*=======================
+Inputs
+===========================*/
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+textarea {
+  width: 80%;
+  padding: 10px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  border-radius: 5px;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="tel"]:focus,
+input[type="email"]:focus textarea:focus {
+  background-color: white;
+}
+
+label {
+    display: block;
+    margin-bottom: 4px;
+}
+
+/*=======================
+Inbox, Sent, etc
+===========================*/
+
+.inbox-container {
+    margin: 0 auto;
+    width: 90%;
+}
+
+.inbox-container>ul {
+    list-style-type: none;
+}
+
+.inbox-container>ul>li {
+    line-height: 50px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.inbox-container>ul>li:hover {
+  opacity: 0.7;
+}
+
+.inbox-container>ul>li:hover>button {
+    display: inline;
+}
+
+>>>>>>> gh-pages
 /*=======================
 Profile Page
 ===========================*/
 
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+<<<<<<< HEAD
     width: 60%;
+=======
+    width: 80%;
+>>>>>>> gh-pages
     margin: 20px auto 10px auto;
     text-align: center;
   }
 
   .card>img {
       margin-top: 10px;
+<<<<<<< HEAD
       width: 60%;
       height: 60%;
       border-radius: 25%;
+=======
+      width: 50%;
+      height: 60%;
+      border-radius: 50%;
+>>>>>>> gh-pages
   }
 
   .card>form {
@@ -352,13 +451,20 @@ Modal Style
 Signup & Signin Page
 ===========================*/
 .form-container {
+<<<<<<< HEAD
     margin: 10px auto;
     width: 60%;
     height: 80%;
+=======
+    margin: 0 auto;
+    width: 60%;
+    height: 77%;
+>>>>>>> gh-pages
     border: 2px solid rgba(0, 0, 0, 0.1);
     border-radius: 15px;
     color: black;
     background-color: #DAE0F2;
+<<<<<<< HEAD
 }
 
 
@@ -392,3 +498,58 @@ footer {
 /*=======================
 Media Queries
 ===========================*/
+=======
+}
+
+
+.form-title {
+    margin-bottom: 30px;
+    color: #2892D7;
+}
+
+.form-title h2 {
+    color: #2892D7;
+}
+
+footer {
+    background-color: #292f50;
+    text-align: center;
+    height: 10%;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+
+  .form-paragraph {
+      margin-top: 10px;
+  }
+  .form-paragraph em {
+      margin-left: 4px;
+      color: #2892D7;
+  }
+
+  .form-paragraph em a {
+    color: #2892D7;
+  }
+
+/*=======================
+Media Queries
+===========================*/
+@media only screen and (max-width: 560px) {
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 90%;
+    margin: 20px auto 10px auto;
+    text-align: center;
+  }
+
+  .card>img {
+      margin-top: 10px;
+      width: 60%;
+      height: 60%;
+      border-radius: 50%;
+  }
+
+
+}
+>>>>>>> gh-pages
