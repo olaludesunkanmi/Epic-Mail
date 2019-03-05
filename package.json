@@ -1,0 +1,33 @@
+{
+  "name": "epic-mail",
+  "version": "1.0.0",
+  "description": "a web app that helps people exchange messages/information over the internet",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --exec babel-node server/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/olaludesunkanmi/Epic-Mail.git"
+  },
+  "author": "Sunkanmi Olalude",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/olaludesunkanmi/Epic-Mail/issues"
+  },
+  "homepage": "https://github.com/olaludesunkanmi/Epic-Mail#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.3.4",
+    "eslint": "^5.15.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "nodemon": "^1.18.10"
+  }
+}
