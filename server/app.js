@@ -2,6 +2,7 @@ import 'dotenv/config';
 import express from "express";
 import bodyParser from "body-parser";
 import router from './routes/user';
+import messageRouter from './routes/message';
 
 
 const PORT = 3000;
@@ -11,7 +12,8 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use('/api/v1/', router);
+app.use('/api/v1', router);
+app.use('/api/v1', messageRouter);
 
 app.get('/', (req, res) => {
   return res.status(200).json({
