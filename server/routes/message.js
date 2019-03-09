@@ -11,11 +11,11 @@ const messageRouter = express.Router();
 const { emailValidator } = MessageValidator;
 
 // Message routes
-messageRouter.get('/messages', getAllMessages);
-messageRouter.post('/messages', emailValidator, sendEmail);
-messageRouter.get('/messages/sent', getSentEmail);
-messageRouter.get('/messages/unread', getUnreadEmail);
-messageRouter.get('/messages/:messageId', getSpecificEmail);
-messageRouter.delete('/messages/:messageId', deleteEmail);
+messageRouter.get('/', getAllMessages);
+messageRouter.post('/', emailValidator, sendEmail);
+messageRouter.get('/sent', getSentEmail);
+messageRouter.get('/unread', getUnreadEmail);
+messageRouter.get('/:messageId', getSpecificEmail);
+messageRouter.delete('/:messageId', deleteEmail);
 
 export default messageRouter;

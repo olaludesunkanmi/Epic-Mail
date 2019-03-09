@@ -102,7 +102,7 @@ class UserValidator {
     if (!password) {
       return res.status(400).json({
         status: 400,
-        error: 'Pasword is required',
+        error: 'Password is required',
       });
     }
 
