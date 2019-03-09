@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.use('/api/v1', router);
-app.use('/api/v1', messageRouter);
+app.use('/api/v1/messages', messageRouter);
 
 app.get('/', (req, res) => {
   return res.status(200).json({
@@ -26,6 +26,15 @@ app.get('/', (req, res) => {
   });
 });
 
+// Handle non existing route with with proper message
+app.all('*', (req, res) => res.status(404).json({
+  status: 404,
+  error: 'Route does not exist',
+}));
+
+
 
 
 app.listen(PORT, () => console.log(`Running on localhost:${PORT}`));
+
+export default app;

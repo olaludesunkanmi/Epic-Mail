@@ -46,6 +46,7 @@ class MessageController {
       return res.status(404).json({
         status: 404,
         error: 'No unread emails',
+        data: 'unread',
       });
     }
     return res.status(200).json({
@@ -67,8 +68,8 @@ class MessageController {
       status: 'sent',
     };
     messages.push(newMessage);
-    return res.status(200).json({
-      status: 200,
+    return res.status(201).json({
+      status: 201,
       data: [newMessage],
     });
   }
