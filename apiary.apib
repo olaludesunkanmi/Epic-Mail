@@ -1,0 +1,186 @@
+FORMAT: 1A
+HOST: https://epicmail7.herokuapp.com/
+
+# Epic-Mail
+
+A web app that helps people exchange messages/information over the internet.
+
+## Messages Collection [/messages]
+
+### List All Messages [GET]
+
++ Response 200 (application/json)
+
+        {
+            "status": 200,
+            "data": [
+                {
+                    "id": 3,
+                    "createdOn": "Fri, 08 Mar 2019 10:23:35 GMT",
+                    "subject": "Invitation to Bootcamp",
+                    "message": "Bootcamp is here",
+                    "parentMessageId": 2,
+                    "status": "unread"
+                },
+                {
+                    "id": 2,
+                    "createdOn": "Sat, 09 Mar 2019 10:23:35 GMT",
+                    "subject": "Andela Invite",
+                    "message": "Welcome to Bootcamp",
+                    "parentMessageId": 3,
+                    "status": "read"
+                }
+            ]
+        }
+
+### Create a New Message [POST]
+
+You may create your own message using this action. It takes a JSON
+object containing subject and message.
+
++ Request (application/json)
+
+        {
+        "subject" : "Coding Convention",
+        "message" : "Hello, happy coders"
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /questions
+
+    + Body
+
+                        {
+                "status": 201,
+                "data": [
+                    {
+                        "id": 4,
+                        "createdOn": "Thu, 14 Mar 2019 16:37:14 GMT",
+                        "subject": "Coding Convention",
+                        "message": "Hello, happy coders",
+                        "senderId": 1,
+                        "receiverId": 2,
+                        "parentMessageId": 4,
+                        "status": "sent"
+                    }
+                ]
+            }
+            
+## Unread Messages Collection [/messages/unread]
+
+### List Unread Messages [GET]
+
++ Response 200 (application/json)
+
+        {
+            "status": 200,
+            "data": [
+                {
+                    "id": 3,
+                    "createdOn": "Fri, 08 Mar 2019 10:23:35 GMT",
+                    "subject": "Invitation to Bootcamp",
+                    "message": "Bootcamp is here",
+                    "parentMessageId": 2,
+                    "status": "unread"
+                }
+            ]
+        }
+        
+## Unread Specific Messages Collection [/messages/2]
+
+### List Specific Message [GET]
+
++ Response 200 (application/json)
+
+        {
+            "status": 200,
+            "data": [
+                {
+                    "id": 2,
+                    "createdOn": "Sat, 09 Mar 2019 10:23:35 GMT",
+                    "subject": "Andela Invite",
+                    "message": "Welcome to Bootcamp",
+                    "parentMessageId": 3,
+                    "status": "read"
+                }
+            ]
+        }
+
+### Delete Specific Message [DELETE]
+
++ Response 200 (application/json)
+
+        {
+            "status": 200,
+            "data": [
+                {
+                    "message": "Email has been successfully deleted"
+                }
+            ]
+        }
+
+
+## Users Signup Collection [/signup]
+
+
+### Create an Account [POST]
+
+You may create your own account using this action. It takes a JSON
+object containing firstname, lastname, email and password.
+
++ Request (application/json)
+        
+        {
+        "firstname" : "Johnny",
+        "lastname" : "Travis",
+        "email" : "johnytrav@mail.com",
+        "password" : "password"
+        }
+        
++ Response 201 (application/json)
+
+    + Headers
+    
+            Location: /signup
+            
+    + Body
+    
+                {
+                        "status": 201,
+                        "data": [
+                            {
+                                "name": "Johnny",
+                                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyLCJlbWFpbCI6ImpvaG55dHJhdkBtYWlsLmNvbSIsImZpcnN0bmFtZSI6IkpvaG5ueSIsImxhc3RuYW1lIjoiVHJhdmlzIiwicGFzc3dvcmQiOiJwYXNzd29yZCJ9LCJpYXQiOjE1NTI1ODM2MzcsImV4cCI6MTU1MjY3MDAzN30.D8d3VNWn5MPGjz5IgqHf2KBGfflu3MTSthtTtnJGQCE"
+                            }
+                        ]
+                    }
+
+
+
+## Users Login Collection [/login]
+
+You may login into your own account using this action. It takes a JSON
+object containing email and password.
+
+### Login to Account  [POST]
+
++ Request (application/json)
+
+        {
+        "email" : "johnytrav@mail.com",
+        "password" : "password"
+        }
+        
++ Response 201 (application/json)
+        
+        {
+            "status": 200,
+            "data": [
+                {
+                    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyLCJlbWFpbCI6ImpvaG55dHJhdkBtYWlsLmNvbSIsImZpcnN0bmFtZSI6IkpvaG5ueSIsImxhc3RuYW1lIjoiVHJhdmlzIiwicGFzc3dvcmQiOiJwYXNzd29yZCJ9LCJpYXQiOjE1NTI1ODQ1ODIsImV4cCI6MTU1MjY3MDk4Mn0.0b5Q4ysTzGpxEy8EWkYRMX-_Gs9zWO2LYKrG8nqqDcI"
+                }
+            ]
+        }
