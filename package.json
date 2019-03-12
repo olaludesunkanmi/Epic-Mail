@@ -25,7 +25,8 @@
     "nyc": "^13.3.0"
   },
   "scripts": {
-    "start": "nodemon --exec babel-node server/app.js",
+    "start": "babel-node server/app.js",
+    "start-dev": "nodemon --exec babel-node server/app.js",
     "test": "nyc --reporter=html --reporter=text mocha --require @babel/register server/test/*.js --exit",
     "build": "babel src --out-dir dist",
     "serve": "node dist/server.js",
