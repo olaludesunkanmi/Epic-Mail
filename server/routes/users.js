@@ -7,7 +7,7 @@ const { signUpValidator, loginValidator } = UserValidator;
 
 const userRouter = express.Router();
 
-router.post('/signup', signUpValidator, signUp);
-router.post('/login', loginValidator, login);
+userRouter.post('/signup', signUpValidator, signUp);
+userRouter.post('/login', loginValidator, login);
 
 export default userRouter;

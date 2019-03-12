@@ -2,6 +2,9 @@
   "name": "epic-mail",
   "version": "1.0.0",
   "description": "an app that allows people to send messages over the internet",
+  "engines": {
+    "node": "8.12.0"
+  },
   "main": "app.js",
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -25,7 +28,8 @@
     "nyc": "^13.3.0"
   },
   "scripts": {
-    "start": "nodemon --exec babel-node server/app.js",
+    "start": "babel-node server/app.js",
+    "start-dev": "nodemon --exec babel-node server/app.js",
     "test": "nyc --reporter=html --reporter=text mocha --require @babel/register server/test/*.js --exit",
     "build": "babel src --out-dir dist",
     "serve": "node dist/server.js",
