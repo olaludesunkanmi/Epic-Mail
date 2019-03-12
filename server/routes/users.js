@@ -1,5 +1,5 @@
 import express from 'express';
-import UserController from '../controllers/userC';
+import UserController from '../controllers/userController';
 import UserValidator from "../helpers/userValidator";
 
 const { signUp, login } = UserController;
