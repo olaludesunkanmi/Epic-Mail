@@ -1,4 +1,4 @@
-import users from '../data/userdb';
+import users from '../data/userDb';
 
 class UserValidator {
   static signUpValidator(req, res, next) {
