@@ -2,8 +2,8 @@ import chai from 'chai';
 import chaiHttp from 'chai-http';
 import app from '../app';
 
-// Get our db from data folder
-import messages from '../data/messagedb';
+// // Get our db from data folder
+import messages from '../data/messageDb';
 
 // Get our  mockMessages
 import { validPostData, invalidPost } from './mocks/messageMock';

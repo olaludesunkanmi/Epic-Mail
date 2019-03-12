@@ -1,4 +1,4 @@
-import messages from '../data/messagedb';
+import messages from '../data/messageDb';
 
 class MessageController {
   // Get all emails

@@ -1,4 +1,4 @@
-import users from '../data/userdb';
+import users from '../data/userDb';
 import Helpers from '../helpers/helper';
 
 const { generateToken } = Helpers;
@@ -15,7 +15,7 @@ class UserController {
     const token = generateToken(newUser);
     users.push(newUser);
     return res.status(201).json({
-      status: 200,
+      status: 201,
       data: [{
         token,
       }],
