@@ -1,4 +1,4 @@
-import users from '../data/userdb';
+import users from '../data/userDb';
 import Helpers from '../helpers/helper';
 
 const { generateToken } = Helpers;

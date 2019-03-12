@@ -2,7 +2,7 @@ import express from 'express';
 import {
   getAllMessages, getSentEmail, getUnreadEmail, sendEmail,
   deleteEmail, getSpecificEmail,
-} from '../controllers/MessageController';
+} from '../controllers/messageController';
 import MessageValidator from '../helpers/messageValidator';
 
 const messageRouter = express.Router();
