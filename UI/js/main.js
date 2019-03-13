@@ -17,6 +17,14 @@ span.onclick = function() {
   modal.style.display = "none";
 }
 
+// let menu = document.querySelector('selected');
+
+// addEventListener.onclick()
+// for (let i = 0; i < menu.length ; i++) {
+//   return menu[i].classlist.toggle('selected');
+// }
+
+
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target == modal) {
