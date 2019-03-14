@@ -58,21 +58,14 @@ export const validSignUp = [
       lastname: 'Bauer',
       password: 'bauer737',
     },
-    // Short email address.=======>[7]
-    {
-      email: 'e@zoo.com',
-      firstname: 'Jack',
-      lastname: 'Bauer',
-      password: 'bauer737',
-    },
-    // Duplicate email check=======>[8]
+    // Duplicate email check=======>[7]
     {
       email: 'jackbauer@yahoo.com',
       firstname: 'Jack',
       lastname: 'Gates',
       password: 'jackgates456',
     },
-    // Short password check=======>[9]
+    // Short password check=======>[8]
     {
       email: 'uidoe@yahoo.com',
       firstname: 'Jack',

@@ -3,9 +3,17 @@ import messages from '../data/messageDb';
 class MessageController {
   // Get all emails
   static getAllMessages(req, res) {
+    const read = messages.filter(message => message.status === 'read');
+    const unread = messages.filter(message => message.status === 'unread');
+    if (read.length === 0 || unread.length === 0) {
+      return res.status(404).json({
+        status: 404,
+        error: 'No received emails',
+        });
+      }
     return res.status(200).json({
       status: 200,
-      data: messages,
+      data: [...unread, ...read],
     });
   }
 
@@ -58,7 +66,7 @@ class MessageController {
   // Send an email
   static sendEmail(req, res) {
     const newMessage = {
-      id: messages.length + 1,
+      id: messages[messages.length - 1].id + 1,
       createdOn: new Date().toUTCString(),
       subject: req.body.subject,
       message: req.body.message,
@@ -80,7 +88,7 @@ class MessageController {
     if (!email) {
       return res.status(404).json({
         status: 404,
-        error: 'The message was not found!',
+        error: 'The message id was not found!',
       });
     }
     const index = messages.indexOf(email);

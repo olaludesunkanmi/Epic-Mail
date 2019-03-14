@@ -1,18 +1,18 @@
 
 export const validPostData = [
     {
-      subject: 'Test message',
-      message: 'Testing 123456.',
+      subject: 'Bootcamp Invite',
+      message: 'Welcome to bootcamp',
     },
   ];
   
   export const invalidPost = [
     {
       subject: '',
-      message: 'Testing this app',
+      message: 'Into the bootcamp',
     },
     {
-      subject: 'This is it',
+      subject: 'Hello world',
       message: '',
     },
   ];

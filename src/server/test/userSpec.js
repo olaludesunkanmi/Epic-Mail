@@ -9,9 +9,7 @@ expect();
 
 chai.use(chaiHttp);
 
-describe('User test', () => {
-  describe('SignUp a user', () => {
-    describe('User with good details', () => {
+describe('User test sign up a user with good details', () => {
       it('should return status code 201 and create a new user', (done) => {
         chai
           .request(app)
@@ -98,23 +96,6 @@ describe('User test', () => {
           });
       });
     });
-    describe('User signing up with a short password', () => {
-      it('should return status code 400 and send an error message', (done) => {
-        chai
-          .request(app)
-          .post('/api/v1/auth/signup')
-          .send(invalidSignUp[9])
-          .end((err, res) => {
-            res.should.have.status(400);
-            res.body.should.be.a('object');
-            res.body.should.have.property('status');
-            res.body.should.have.property('error');
-            expect(res.body.status).to.equal(400);
-            expect(res.body.error).to.equal('Password should be 8 to 20 characters long');
-            done();
-          });
-      });
-    });
     describe('User with invalid firstname format', () => {
       it('should return status code 400 and send error message', (done) => {
         chai
@@ -166,23 +147,6 @@ describe('User test', () => {
           });
       });
     });
-    describe('User with short email address', () => {
-      it('should return status code 400 and send error message', (done) => {
-        chai
-          .request(app)
-          .post('/api/v1/auth/signup')
-          .send(invalidSignUp[7])
-          .end((err, res) => {
-            res.should.have.status(400);
-            res.body.should.be.a('object');
-            res.body.should.have.property('status');
-            res.body.should.have.property('error');
-            expect(res.body.status).to.equal(400);
-            expect(res.body.error).to.equal('Email should be 10 to 50 characters long');
-            done();
-          });
-      });
-    });
     describe('User signing up existing email', () => {
       it('should return status code 400 and send an error message', (done) => {
         chai
@@ -201,10 +165,8 @@ describe('User test', () => {
           });
       });
     });
-  });
 
-  describe('Login a user', () => {
-    describe('User already signed up', () => {
+  describe('Login a user, user already signed up', () => {
       it('should return status code 200 and login the user', (done) => {
         chai
           .request(app)
@@ -290,5 +252,3 @@ describe('User test', () => {
           });
       });
     });
-  });
-});

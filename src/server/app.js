@@ -5,7 +5,7 @@ import userRouter from './routes/users';
 import messageRouter from './routes/messages';
 
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 const app = express();
 

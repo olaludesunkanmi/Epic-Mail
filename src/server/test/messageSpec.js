@@ -15,9 +15,7 @@ expect();
 // Use chaiHttp for Http verbs.
 chai.use(chaiHttp);
 
-describe('Emails test', () => {
-  describe('GET', () => {
-    describe('Get all emails', () => {
+describe('Emails test, Get all emails', () => {
       it('should return status code 200 and get all emails', (done) => {
         chai
           .request(app)
@@ -83,10 +81,8 @@ describe('Emails test', () => {
           });
       });
     });
-  });
 
-  describe('POST', () => {
-    describe('Send a valid email', () => {
+  describe('POST ,send a valid email', () => {
       it('should return status code 201 and send email', (done) => {
         chai
           .request(app)
@@ -140,22 +136,19 @@ describe('Emails test', () => {
           });
       });
     });
-  });
 
-  describe('DELETE', () => {
-    describe('Delete an email id that is present', () => {
+  describe('DELETE, delete an email id that is present', () => {
       it('should return status code 200 and remove message', (done) => {
         const id = 1;
         chai
           .request(app)
           .delete(`/api/v1/messages/${id}`)
-          .send(messages)
           .end((err, res) => {
-            res.should.have.status(200);
+            res.should.have.status(204);
             res.body.should.be.a('object');
             res.body.should.have.property('status');
             res.body.should.have.property('data');
-            expect(res.body.status).to.equal(200);
+            expect(res.body.status).to.equal(204);
             expect(res.body.data[0].message).to.equal('Email has been successfully deleted');
             done();
           });
@@ -174,10 +167,8 @@ describe('Emails test', () => {
             res.body.should.have.property('status');
             res.body.should.have.property('error');
             expect(res.body.status).to.equal(404);
-            expect(res.body.error).to.equal('The message was not found!');
+            expect(res.body.error).to.equal('The message with id was not found!');
             done();
           });
       });
     });
-  });
-});

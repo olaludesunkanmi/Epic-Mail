@@ -9,6 +9,14 @@ const messages = [
     status: 'sent'
   },
   {
+    id: 2,
+    createdOn: "Sat, 09 Mar 2019 10:23:35 GMT",
+    subject: 'Andela Invite',
+    message: 'Welcome to Bootcamp',
+    parentMessageId: 3,
+    status: 'read'
+  },
+  {
     id: 3,
     createdOn: "Fri, 08 Mar 2019 10:23:35 GMT",
     subject: 'Invitation to Bootcamp',
