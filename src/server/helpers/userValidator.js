@@ -2,26 +2,20 @@ import users from '../data/userDb';
 
 class UserValidator {
   static signUpValidator(req, res, next) {
-    let {
-      firstname,
-      lastname,
-      email,
-      password,
-    } = req.body;
+    let { body } = req;
+    const { firstname, lastname, email, password } = body;
     if (!firstname) {
       return res.status(400).json({
         status: 400,
         error: 'Firstname is required',
       });
     }
-    firstname = firstname.toLowerCase().trim();
     if (!lastname) {
       return res.status(400).json({
         status: 400,
         error: 'Lastname is required',
       });
     }
-    lastname = lastname.toLowerCase().trim();
     if (!email) {
       return res.status(400).json({
         status: 400,
@@ -41,19 +35,11 @@ class UserValidator {
         error: 'Last Name field cannot contain numbers and symbols',
       });
     }
-
-    email = email.toLowerCase().trim();
     const emailVerifier = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
     if (!emailVerifier.test(email)) {
       return res.status(400).json({
         status: 400,
         error: 'Email format is invalid',
-      });
-    }
-    if (email.length < 10 || email.length > 30) {
-      return res.status(400).json({
-        status: 400,
-        error: 'Email should be 10 to 50 characters long',
       });
     }
     const duplicateEmail = users.find(user => user.email === email);
@@ -90,7 +76,6 @@ class UserValidator {
         error: 'Email is required',
       });
     }
-    email = email.toLowerCase().trim();
     const foundUser = users.find(user => user.email === email);
     if (!foundUser) {
       return res.status(401).json({
@@ -105,8 +90,6 @@ class UserValidator {
         error: 'Password is required',
       });
     }
-
-    password = password.trim();
     if (foundUser && password !== foundUser.password) {
       return res.status(401).json({
         status: 401,

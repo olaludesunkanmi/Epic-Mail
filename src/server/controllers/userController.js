@@ -6,7 +6,7 @@ const { generateToken } = Helpers;
 class UserController {
   static signUp(req, res) {
     const newUser = {
-      id: users.length + 1,
+      id: users[users.length - 1].id + 1,
       email: req.body.email,
       firstname: req.body.firstname,
       lastname: req.body.lastname,
@@ -17,6 +17,7 @@ class UserController {
     return res.status(201).json({
       status: 201,
       data: [{
+        name : req.body.firstname,
         token,
       }],
     });
@@ -28,6 +29,7 @@ class UserController {
     return res.status(200).json({
       status: 200,
       data: [{
+        name : req.body.firstname,
         token,
       }],
     });
