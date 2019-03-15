@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
     status: 200,
     data: [
       {
-        message: 'Sign in successful',
+        message: 'Welcome!',
       },
     ],
   });

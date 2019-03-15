@@ -15,3 +15,5 @@ checks:
     enabled: false
   method-complexity:
     enabled: false
+
+token: 4756ce7d5078518e325b07f547103733a393dd10c75fb80e6d15862392996b3b

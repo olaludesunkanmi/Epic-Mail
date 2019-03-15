@@ -4,7 +4,7 @@ body{
     font-family: 'lato', sans-serif;
     margin: 0;
     padding: 0;
-    background-image: url(/Epic-Mail/UI/img/airmail.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/Epic-Mail/UI/img/airmail.jpg);
     background-size: cover;
     background-position: center 5px;
 
@@ -27,29 +27,39 @@ body{
       color: #ffffff
   }
 
-  .logo {
+  .logo h1{
       font-weight: bolder;
       margin-left: 10px;
+      margin-top: 10px;
   }
 
   .sign-up {
-      margin-right: 20px;
-      height: 60px;
-      background: #292f50;
-      color: #fff;
-      font-size: 18px;
-      border-radius: 15px;
-      padding: 10px;
-  }
-
-  .nav {
-      margin-right: 10px;
+      margin-right: 30px;
       height: 40px;
       background: #292f50;
       color: #fff;
-      font-size: 18px;
+      font-size: 25px;
       border-radius: 15px;
       padding: 10px;
+      text-align: center;
+      width: 200px;
+  }
+
+  .nav {
+      height: 40px;
+      background: #292f50;
+      color: #fff;
+      font-size: 25px;
+      border-radius: 15px;
+      padding: 10px;
+      text-align: center;
+      width: 150px;
+  }
+
+  .button-container {
+      display: flex;
+      justify-content: center;
+      width: 100vw;
   }
 
 
@@ -57,17 +67,19 @@ body{
       background: #2892D7;
   }
 
-  .container {
-      text-align: center;
+  .forgot-password {
+      margin-top: 5px;
   }
 
   .container p {
       margin-top: 15%;
-      color: #2892D7;
-      font-size: 40px;
+      margin-left: 30px;
+      /* margin-right: auto; */
+      color: #ffffff;
+      font-size: 60px;
       font-weight: bolder;
-      text-align: center;
-      width: 100%;
+      /* text-align: center; */
+      /* width: 100%; */
   }
 
   .about {
@@ -75,7 +87,7 @@ body{
   }
 
   .about p {
-    color: #2892D7;
+    color: #ffffff;
     font-size: 18px;
     font-weight: bold;
     text-align: center;
@@ -96,8 +108,9 @@ body{
 }
 
 .signup-box{
+    margin-top: 20px;
     width: 420px;
-    height: 600px;
+    height: 550px;
     background: #292f50;
     color: #fff;
     top: 50%;
@@ -166,6 +179,114 @@ h1{
 {
     color: #2892D7;
 }
+
+em {
+    margin-left: 6px;
+}
+
+.loginbox a {
+    font-size: 16px;
+}
+
+
+ /*=======================
+Modal Style
+===========================*/
+  /* The Modal (background) */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 25%;
+    top: 25%;
+    width: 60%; 
+    height: 65%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    -webkit-animation-name: fadeIn; /* Fade in the background */
+    -webkit-animation-duration: 0.4s;
+    animation-name: fadeIn;
+    animation-duration: 0.4s;
+    border-radius: 15px;
+  }
+    
+  /* Modal Content */
+  .modal-content {
+    position: relative;
+    background-color: #EFE9E7;
+    margin: 10px auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    border-radius: 15px;
+  }
+  
+  /* Add Animation */
+  @-webkit-keyframes animatetop {
+    from {top:-500px; opacity:0} 
+    to {top:0; opacity:1}
+  }
+  
+  @keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+  }
+  
+  /* The Close Button */
+  .close {
+    color: red;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .modal-header {
+    padding: 2px 16px;
+  }
+  
+  .modal-body {
+      padding: 2px 16px;
+    }
+
+.modal-body h2 {
+    color: black;
+    text-align: center;
+}
+  
+  .modal-footer {
+    padding: 2px 16px;
+    color: white;
+  }
+
+ /*=======================
+Media Queries
+===========================*/
+
+  @media only screen and (max-width: 321px) {
+    .loginbox{
+        width: 280px;
+        height: 420px;
+    }
+    
+    .signup-box{
+        width: 280px;
+        height: 500px;
+    }
+
+  }
 
 
 
