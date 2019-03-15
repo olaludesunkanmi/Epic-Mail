@@ -45,6 +45,11 @@ Header
       font-size: 30px;
       border-radius: 15px;
       background: #ffffff;
+      transition: font-size 1s;
+  }
+
+  .nav-bar:hover {
+    font-size: 32px;
   }
 
 
@@ -263,18 +268,29 @@ table {
   /* font-size: 0.9rem; */
 }
 
+/* .bin {
+  display: none;
+} */
+
 table {
   background: #ffffff;
 }
 
 table tr {
   cursor: pointer;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1)
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 25px;
+
 }
 
 table tr:hover {
   background: #ddd;
 }
+
+/* table tr:hover>.bin {
+  display: inline;
+  background: #2892D7;
+} */
 
 table td {
   padding: 5px;
