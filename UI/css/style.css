@@ -4,7 +4,7 @@ body{
     font-family: 'lato', sans-serif;
     margin: 0;
     padding: 0;
-    background-image: url(airmail.jpg);
+    background-image: url(/Epic-Mail/UI/img/airmail.jpg);
     background-size: cover;
     background-position: center 5px;
 
@@ -62,15 +62,16 @@ body{
   }
 
   .container p {
-      margin-top: 150px;
+      margin-top: 15%;
       color: #2892D7;
-      font-size: 25px;
+      font-size: 40px;
       font-weight: bolder;
       text-align: center;
+      width: 100%;
   }
 
   .about {
-      margin-top: 300px;
+      margin-top: 10%;
   }
 
   .about p {

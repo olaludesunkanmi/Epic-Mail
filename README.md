@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.com/olaludesunkanmi/Epic-Mail.svg?branch=develop)](https://travis-ci.com/olaludesunkanmi/Epic-Mail)
 [![Coverage Status](https://coveralls.io/repos/github/olaludesunkanmi/Epic-Mail/badge.svg)](https://coveralls.io/github/olaludesunkanmi/Epic-Mail)
+[![Maintainability](https://api.codeclimate.com/v1/badges/649001a02dc634da375f/maintainability)](https://codeclimate.com/github/olaludesunkanmi/Epic-Mail/maintainability)
 
 ## Description
 A web app that helps people exchange messages/information over the internet.
@@ -34,3 +35,6 @@ S/N | Verb   | Endpoint         | Description             |
   6 | Get    | /messages/id     | Get a specific email    |
   7 | Post   | /messages        | Send email to users     |
   8 | Delete | /messages/id     | Delete an email         |
+
+### API Documentation
+https://epicmail6.docs.apiary.io/
