@@ -20,33 +20,38 @@ Header
 ===========================*/
 
   .header {
+    position: sticky;
     background-color:#292f50;;
     display: flex;
     height: 13%;
     align-items: center;
     color: black;
+    width: 100%;
+    z-index: 1;
+    top: 0;
   }
 
   h2, h4 {
       color: #ffffff;
   }
 
+  .nav-logo {
+    margin-left: 13px;
+  }
+
   .nav-bar {
       margin-left: auto;
-      margin-right: 20px;
+      margin-right: 30px;
+      font-size: 30px;
+      border-radius: 15px;
+      background: #ffffff;
+      transition: font-size 1s;
   }
 
-  .search-field {
-      margin-left: 20px;
-      flex: 1 1 0;
+  .nav-bar:hover {
+    font-size: 32px;
   }
 
-  .search-field input[type="text"] {
-    width: 60%;
-    height: 40px;
-    box-shadow: none;
-    box-sizing: border-box;
-  }
 
   .dropdown {
       color: #ffffff;
@@ -60,7 +65,6 @@ Body Container
     background-color: #EFE9E7;
     display: grid;
     grid-template-columns: 15% auto;
-    grid-template-rows: 80% 20%;
     grid-gap: 3px;
   }
 
@@ -75,36 +79,22 @@ Body Container
   }
 
   .content {
-    background-color: #DAE0F2;
+    background-color:  #DAE0F2;
     color: black;
   }
 
-  .footer {
-    grid-column: 1 / -1;
-    background-color: #292f50;
-    text-align: center;
-  }
-
-  .copyright  {
-      margin: 20px;
-  }
-
   .compose {
-      width: 80%;
+      display: block;
       margin: 12px;
-  }
+      background-color: #2892D7;
+      color: white;
+      padding: 12px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      text-align: center;
 
-  .compose a{
-    border-radius: 5px;
-    display: block;
-    text-transform: uppercase;
-    color: #ffffff;
-    cursor: pointer;
-    text-align: center;
-    background-color: green;
-    padding: 10px;
   }
-
 
 .menu-list ul li {
     display: block;
@@ -123,12 +113,20 @@ Body Container
 .menu-list ul li a:hover {
     opacity: 0.5;
     background-color: #DAE0F2;
-}
+  }
+
+  .active{
+    background: #DAE0F2;
+    border: 0.5px solid #2892D7;
+  }
+
 
 
 .dropdown-content {
+    font-size: 18px;
     display: none;
     position: absolute;
+    right: 10px;
     z-index: 1;
     background: #292f50;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
@@ -152,12 +150,43 @@ Body Container
   }
 
 /*=======================
+Messages
+===========================*/
+.message-container {
+  background: #ffffff;
+  margin: 30px auto;
+  width: 95%;
+}
+.message-container  h2 {
+  text-align: center;
+  color: black;
+  background-color: #ffffff;
+}
+.message-body {
+  margin: 10px 4px;
+  line-height: 30px;
+}
+
+/*=======================
 Forms
 ===========================*/
 
 .form-box {
-    margin: 10px auto 0 auto;
+    margin: 60px auto 0 auto;
     width: 70%;
+}
+
+.compose-box {
+  margin: 50px auto 0 auto;
+  width: 80%;
+  /* background: #2892D7 */
+}
+.compose-container {
+  background: #DAE0F2;
+}
+
+.compose-box textarea {
+  height: 240px;
 }
 
 /*=======================
@@ -165,9 +194,10 @@ Buttons
 ===========================*/
 
 button, .btn {
-background-color: green;
+background-color: #2892D7;
 color: white;
 padding: 12px;
+width: 15%;
 border: none;
 cursor: pointer;
 border-radius: 5px;
@@ -175,9 +205,10 @@ border-radius: 5px;
 
 .draft-btn {
     display: none;
-    background-color: green;
+    background-color: #2892D7;
     color: white;
     padding: 12px;
+    width: 10%;
     border: none;
     cursor: pointer;
     border-radius: 5px;
@@ -225,26 +256,50 @@ Inbox, Sent, etc
 ===========================*/
 
 .inbox-container {
-    margin: 0 auto;
-    width: 90%;
+    margin: 10px auto;
+    width: 96%;
+    background: #ffffff;
+}
+/* 
+
+/*=======================
+Tables
+===========================*/
+table {
+  width: 100%;
+  border-collapse: collapse;
+  /* font-size: 0.9rem; */
 }
 
-.inbox-container>ul {
-    list-style-type: none;
+/* .bin {
+  display: none;
+} */
+
+table {
+  background: #ffffff;
 }
 
-.inbox-container>ul>li {
-    line-height: 50px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+table tr {
+  cursor: pointer;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 25px;
+
 }
 
-.inbox-container>ul>li:hover {
-  opacity: 0.7;
+table tr:hover {
+  background: #ddd;
 }
 
-.inbox-container>ul>li:hover>button {
-    display: inline;
+/* table tr:hover>.bin {
+  display: inline;
+  background: #2892D7;
+} */
+
+table td {
+  padding: 5px;
 }
+
+
 
 /*=======================
 Profile Page
@@ -252,14 +307,15 @@ Profile Page
 
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    width: 80%;
+    width: 70%;
+    height: 70%;
     margin: 20px auto 10px auto;
     text-align: center;
   }
 
   .card>img {
       margin-top: 10px;
-      width: 50%;
+      width: 60%;
       height: 60%;
       border-radius: 50%;
   }
@@ -355,9 +411,9 @@ Modal Style
 Signup & Signin Page
 ===========================*/
 .form-container {
-    margin: 0 auto;
+    margin: 10px auto;
     width: 60%;
-    height: 77%;
+    height: 80%;
     border: 2px solid rgba(0, 0, 0, 0.1);
     border-radius: 15px;
     color: black;
@@ -374,15 +430,6 @@ Signup & Signin Page
     color: #2892D7;
 }
 
-footer {
-    background-color: #292f50;
-    text-align: center;
-    height: 10%;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-  }
-
   .form-paragraph {
       margin-top: 10px;
   }
@@ -395,23 +442,19 @@ footer {
     color: #2892D7;
   }
 
+  footer {
+    align-items: center;
+    display: flex;
+    background-color: #292f50;
+    text-align: center;
+    height: 10%;
+    width: 100%;
+  }
+
+  .copyright {
+    margin: 0 auto;
+  }
+
 /*=======================
 Media Queries
 ===========================*/
-@media only screen and (max-width: 560px) {
-  .card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    width: 90%;
-    margin: 20px auto 10px auto;
-    text-align: center;
-  }
-
-  .card>img {
-      margin-top: 10px;
-      width: 60%;
-      height: 60%;
-      border-radius: 50%;
-  }
-
-
-}

@@ -1,42 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Sign Up</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css"/>
-    <script src="main.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
     <div class="header">
-        <a href="signup.html" class="logo"><h2>EPIC MAIL</h2></a>
+        <a href="index.html" class="logo"><h1>Epic Mail</h1></a>
     </div>
-
-    <div class="form-container">
-        <form action="home.html" class="form-box">
-            <div class="form-title">
-                <h2>SIGN UP</h2>
-            </div>
-
-            <label for="firstname">Firstname</label>
-            <input type="text" class="first-name" name="firstname" placeholder="Your firstname" required><br>
-            <label for="lastname">Lastname</label>
-            <input type="text" class="last-name" name="lastname" placeholder="Your lastname" required><br>
-            <label for="email">Email</label>
-            <input type="email" class="email-field" name="email" placeholder="name@name.com" required><br>
-            <label for="password">Password</label>
-            <input type="password" class="password-field" name="password" placeholder="xxxxxx" required><br>
-            <button class="btn">SIGN UP</button> 
-            <p class="form-paragraph">Already have an account?<em><a href="index.html" class="log">Sign In</a></em></p>
+     <div class="signup-box loginbox">
+        <h1>Sign Up Here</h1>
+        <form action="inbox.html">
+            <p>Firstname</p>
+            <input type="text" class="first-name" name="firstname" placeholder="Your firstname" required>
+            <p>Lastname</p>
+            <input type="text" class="last-name" name="lastname" placeholder="Your lastname" required>
+            <p>Email</p>
+            <input type="email" name="" placeholder="Enter Email" required>
+            <p>Password</p>
+            <input type="password" name="" placeholder="Enter Password" required>
+            <input type="submit" name="" value="Sign Up">
+            <p>Already have an account?<em><a href="signin.html">Login</a></em></p>
         </form>
-    </div>
-
-    <footer>
-        <div class="copyright">
-        <span>&copy; 2019 Andela. All rights reserved.</span>
-        </div>
-    </footer>
         
+    </div>
 </body>
 </html>

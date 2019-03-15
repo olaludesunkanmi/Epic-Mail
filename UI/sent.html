@@ -13,15 +13,11 @@
         <div class="nav-logo">
         <a href="home.html" class="logo"><h2>EPIC MAIL</h2></a>
         </div>
-        <div class="search-field">
-        <input type="text" class="input-search-field" placeholder="Find messages"></i>
-        </div>
         <div class="nav-bar">
             <ul class="dropdown">
-                <a href="#"><h4 class="profile">Profile</h4></a> 
+                <a href="#"><i class="fa fa-user-circle"></i></a> 
                 <div class="dropdown-content">
                     <a href="profile.html" class="reset-password">Account Info</a>
-                    <a  href="#" id="myBtn">Reset Password</a>
                     <a href="index.html">Signout</a>
                 </div>
             </ul>
@@ -29,12 +25,12 @@
     </div>
     <div class="container">
         <div class="menu">
-            <div class="compose"><a href="compose.html">Compose</a></div>
+            <a class="compose" href="compose.html">Compose</a>
             <hr>
             <div class="menu-list">
                 <ul> 
                     <li><a href="inbox.html">Inbox</a></li>
-                    <li><a href="sent.html">Sent</a></li>
+                    <li class="active"><a href="sent.html">Sent</a></li>
                     <li><a href="draft.html">Draft</a></li>
                     <li><a href="group.html">Group</a></li>
                     <li><a href="trash.html">Trash</a></li>
@@ -43,16 +39,99 @@
         </div>
         <div class="content">
             <div class="inbox-container">
-                <ul>
-                    <li><a href="messages.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit<span><a href="messages.html">...</a></span></a><button class="draft-btn">Save</button></li>
-                    <li><a href="messages.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit<span><a href="messages.html">...</a></span></a><button class="draft-btn">Save</button></li>
-                    <li><a href="messages.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit<span><a href="messages.html">...</a></span></a><button class="draft-btn">Save</button></li>
-                    <li><a href="messages.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit<span><a href="messages.html">...</a></span></a><button class="draft-btn">Save</button></li>
-                    <li><a href="messages.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit<span><a href="messages.html">...</a></span></a><button class="draft-btn">Save</button></li>
-                    <li><a href="messages.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit<span><a href="messages.html">...</a></span></a><button class="draft-btn">Save</button></li>
-                </ul>
+                <table>
+                    <tbody>
+                        <tr class="sent-mails">
+                            <td><input type="checkbox"></td>
+                            <td onClick="location.href='messages.html'" class="sender">Joseph Prince</td>
+                            <td onClick="location.href='messages.html'" class="title">For I will be merciful to their unrighteousness,
+                                 and their sins and their lawless deeds I will remember no more...</td>
+                            <td class="bin"><i class="fa fa-trash"></i></td>
+                            <td class="date">8:24AM</td>
+                        </tr>
+                        </tr>
+                        <tr class="sent-mails">
+                            <td><input type="checkbox"></td>
+                            <td class="sender">Nelson</td>
+                            <td class="title">I will send in the purchase details soon</td>
+                            <td class="bin"><i class="fa fa-trash"></i></td>
+                            <td class="date">8:24AM</td>
+                        </tr>
+                       <tr class="sent-mails">
+                            <td><input type="checkbox"></td>
+                            <td class="sender">Joseph Prince</td>
+                            <td class="title">This is to notify you of the merger between us and access...</td>
+                            <td class="bin"><i class="fa fa-trash"></i></td>
+                            <td class="date">8:24AM</td>
+                        </tr>
+                        <tr class="sent-mails">
+                            <td><input type="checkbox"></td>
+                            <td class="sender">Andela</td>
+                            <td class="title">You're Welcome to bootcamp...</td>
+                            <td class="bin"><i class="fa fa-trash"></i></td>
+                            <td class="date">9:00AM</td>
+                        </tr>
+                        <tr class="sent-mails">
+                            <td><input type="checkbox"></td>
+                            <td class="sender">Access Bank</td>
+                            <td class="title">Protact your account from fraudsters...</td>
+                            <td class="bin"><i class="fa fa-trash"></i></td>
+                            <td class="date">10:20AM</td>
+                        </tr>
+                        <tr class="sent-mails">
+                            <td><input type="checkbox"></td>
+                            <td class="sender">UBA</td>
+                            <td class="title">Get free fuel worth 3000 naira this friday using mastercard...</td>
+                            <td class="bin"><i class="fa fa-trash"></i></td>
+                            <td class="date">8:24AM</td>
+                        </tr>
+                        <tr class="sent-mails">
+                            <td><input type="checkbox"></td>
+                            <td class="sender">Joseph Prince</td>
+                            <td class="title">For I will be merciful to their unrighteousness,
+                                 and their sins and their lawless deeds I will remember no more...</td>
+                            <td class="bin"><i class="fa fa-trash"></i></td>
+                            <td class="date">8:24AM</td>
+                        </tr>
+                        <tr class="sent-mails">
+                            <td><input type="checkbox"></td>
+                            <td class="sender">Andela</td>
+                            <td class="title">You're Welcome to bootcamp...</td>
+                            <td class="bin"><i class="fa fa-trash"></i></td>
+                            <td class="date">9:00AM</td>
+                        </tr>
+                        <tr class="sent-mails">
+                            <td><input type="checkbox"></td>
+                            <td class="sender">Access Bank</td>
+                            <td class="title">Protact your account from fraudsters...</td>
+                            <td class="bin"><i class="fa fa-trash"></i></td>
+                            <td class="date">10:20AM</td>
+                        </tr>
+                        <tr class="sent-mails">
+                            <td><input type="checkbox"></td>
+                            <td class="sender">Nelson</td>
+                            <td class="title">I will send in the purchase details soon</td>
+                            <td class="bin"><i class="fa fa-trash"></i></td>
+                            <td class="date">8:24AM</td>
+                        </tr>
+                       <tr class="sent-mails">
+                            <td><input type="checkbox"></td>
+                            <td class="sender">Joseph Prince</td>
+                            <td class="title">This is to notify you of the merger between us and access...</td>
+                            <td class="bin"><i class="fa fa-trash"></i></td>
+                            <td class="date">8:24AM</td>
+                        </tr>
+                        <tr class="sent-mails">
+                            <td><input type="checkbox"></td>
+                            <td class="sender">Andela</td>
+                            <td class="title">You're Welcome to bootcamp...</td>
+                            <td class="bin"><i class="fa fa-trash"></i></td>
+                            <td class="date">9:00AM</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-
+        
                         <!-- The Modal -->
             <div id="myModal" class="modal">
 
@@ -78,12 +157,12 @@
                 
             </div>
         </div>
-        <div class="footer">
-            <div class="copyright">
-                <span>&copy; 2019 Andela. All rights reserved.</span>
-            </div>
-        </div>
     </div>
+    <footer>
+        <div class="copyright">
+        <span>&copy; 2019 Andela. All rights reserved.</span>
+        </div>
+    </footer>
     <script src="js/main.js"></script>
 </body>
 </html>
