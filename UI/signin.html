@@ -5,20 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
+    <div class="header">
+        <a href="index.html" class="logo"><h1>Epic Mail</h1></a>
+    </div>
      <div class="loginbox">
         <h1>Login Here</h1>
-        <form>
+        <form action="inbox.html">
             <p>Email</p>
             <input type="email" name="" placeholder="Enter Email">
             <p>Password</p>
             <input type="password" name="" placeholder="Enter Password">
             <input type="submit" name="" value="Login">
-            <a href="signup.html">Don't have an account?</a>
+            <p>Don't have an account?<em><a href="signup.html">Sign Up</a></em></p>
+            <p class="forgot-password">Forgot Password?<em><a href="#" id="myBtn">Click here</a></em></p>
         </form>
         
     </div>
+                       <!-- The Modal -->
+            <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="close">X</span>
+                    </div>
+                    <div class="modal-body">
+                        <h2>Reset Password</h2>
+                        <form class="form-box">
+                            <label for="password">Old Password</label>
+                            <input type="password" class="password-field" name="password" placeholder="old password" required><br>
+                            <label for="password">New Password</label>
+                            <input type="password" class="password-field" name="password" placeholder="new password" required><br>
+                            <label for="password">Confirm Password</label>
+                            <input type="password" class="password-field" name="password" placeholder="repeat password" required><br>
+                            <button class="btn">Reset</button> 
+                        </form>
+                    </div>
+                    <div class="modal-footer"></div>
+                    </div>
+                
+            </div>
+
+            <script src="js/main.js"></script>
 </body>
 </html>

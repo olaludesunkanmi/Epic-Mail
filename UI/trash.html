@@ -18,7 +18,6 @@
                 <a href="#"><i class="fa fa-user-circle"></i></a> 
                 <div class="dropdown-content">
                     <a href="profile.html" class="reset-password">Account Info</a>
-                    <a  href="#" id="myBtn">Reset Password</a>
                     <a href="index.html">Signout</a>
                 </div>
             </ul>
@@ -35,7 +34,7 @@
                     <li><a href="sent.html">Sent</a></li>
                     <li><a href="draft.html">Draft</a></li>
                     <li><a href="group.html">Group</a></li>
-                    <li><a href="trash.html">Trash</a></li>
+                    <li class="active"><a href="trash.html">Trash</a></li>
                 </ul>
             </div>
         </div>
@@ -43,29 +42,35 @@
             <div class="inbox-container">
                 <table>
                     <tbody>
-                        <tr class="read-inbox">
-                            <td class="sender">Joseph Prince</td>
-                            <td class="title">For I will be merciful to their unrighteousness,
+                        <tr class="read-inbox" >
+                            <td><input type="checkbox"></td>
+                            <td onClick="location.href='messages.html'" class="sender">Joseph Prince</td>
+                            <td onClick="location.href='messages.html'" class="title">For I will be merciful to their unrighteousness,
                                  and their sins and their lawless deeds I will remember no more...</td>
+                            <td class="bin"><i class="fa fa-trash"></i></td>
+                            <td class="date">8:24AM</td>
+                        </tr>
+                        </tr>
+                        <tr class="read-inbox">
+                            <td><input type="checkbox"></td>
+                            <td class="sender">Udemy</td>
+                            <td class="title">Your purchase of the web developers course has been verified...</td>
+                            <td class="bin"><i class="fa fa-trash"></i></td>
                             <td class="date">8:24AM</td>
                         </tr>
                        <tr class="read-inbox">
+                            <td><input type="checkbox"></td>
                             <td class="sender">Joseph Prince</td>
-                            <td class="title">For I will be merciful to their unrighteousness,
-                                 and their sins and their lawless deeds I will remember no more...</td>
+                            <td class="title">This is to notify you of the merger between us and access...</td>
+                            <td class="bin"><i class="fa fa-trash"></i></td>
                             <td class="date">8:24AM</td>
                         </tr>
                         <tr class="read-inbox">
-                            <td class="sender">Joseph Prince</td>
-                            <td class="title">For I will be merciful to their unrighteousness,
-                                 and their sins and their lawless deeds I will remember no more...</td>
-                            <td class="date">8:24AM</td>
-                        </tr>
-                        <tr class="read-inbox">
-                            <td class="sender">Joseph Prince</td>
-                            <td class="title">For I will be merciful to their unrighteousness,
-                                 and their sins and their lawless deeds I will remember no more...</td>
-                            <td class="date">8:24AM</td>
+                            <td><input type="checkbox"></td>
+                            <td class="sender">Andela</td>
+                            <td class="title">You're Welcome to bootcamp...</td>
+                            <td class="bin"><i class="fa fa-trash"></i></td>
+                            <td class="date">9:00AM</td>
                         </tr>
                     </tbody>
                 </table>
