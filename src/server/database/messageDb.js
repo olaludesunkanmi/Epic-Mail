@@ -24,6 +24,14 @@ const messages = [
     parentMessageId: 2,
     status: 'unread'
   },
+  {
+    id: 4,
+    createdOn: "Mon, 11 Mar 2019 10:33:35 GMT",
+    subject: 'Bootcamp Continues',
+    message: 'You are almost there',
+    parentMessageId: 3,
+    status: 'draft'
+  },
 ];
 
 export default messages;

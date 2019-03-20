@@ -15,35 +15,55 @@ expect();
 // Use chaiHttp for Http verbs.
 chai.use(chaiHttp);
 
+let userToken;
+
+describe('Create Token for user', () => {
+  it('should return token for successful login user', (done) => {
+    chai
+      .request(app)
+      .post('/api/v1/auth/login')
+      .send({
+        email: 'jackbauer@yahoo.com',
+        password: 'bauer737',
+      })
+      .end((error, res) => {
+        expect(res).to.have.status(200);
+        userToken = res.body.data[0].token;
+        done();
+      });
+  });
+});
+
 describe('Emails test, Get all emails', () => {
       it('should return status code 200 and get all emails', (done) => {
         chai
-          .request(app)
-          .get('/api/v1/messages')
-          .end((err, res) => {
-            res.should.have.status(200);
-            res.body.should.be.a('object');
-            res.body.should.have.property('status');
-            res.body.should.have.property('data');
-            expect(res.body.status).to.equal(200);
-            expect(res.body.data).to.be.a('array');
-            done();
+        .request(app)
+        .get('/api/v1/messages')
+        .set('authorization', userToken)
+        .end((err, res) => {
+          res.should.have.status(404);
+          res.body.should.be.a('object');
+          res.body.should.have.property('status');
+          res.body.should.have.property('error');
+          expect(res.body.status).to.equal(404);
+          expect(res.body.error).to.equal('There are no received messages yet');
+          done();
           });
       });
     });
     describe('Get a specific email', () => {
       it('should return status code 200 and get one email', (done) => {
         chai
-          .request(app)
-          .get('/api/v1/messages')
-          .end((err, res) => {
-            res.should.have.status(200);
-            res.body.should.be.a('object');
-            res.body.should.have.property('status');
-            res.body.should.have.property('data');
-            expect(res.body.status).to.equal(200);
-            expect(res.body.data).to.be.a('array');
-            done();
+        .request(app)
+        .get('/api/v1/messages/1')
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.body.should.be.a('object');
+          res.body.should.have.property('status');
+          res.body.should.have.property('data');
+          expect(res.body.status).to.equal(200);
+          expect(res.body.data).to.be.a('array');
+          done();
           });
       });
     });
@@ -85,54 +105,56 @@ describe('Emails test, Get all emails', () => {
   describe('POST ,send a valid email', () => {
       it('should return status code 201 and send email', (done) => {
         chai
-          .request(app)
-          .post('/api/v1/messages')
-          .send(validPostData[0])
-          .end((err, res) => {
-            res.should.have.status(201);
-            res.body.should.be.a('object');
-            res.body.should.have.property('status');
-            res.body.should.have.property('data');
-            expect(res.body.status).to.equal(201);
-            expect(res.body.data).to.be.a('array');
-            expect(res.body.data[0].subject).to.be.a('string');
-            expect(res.body.data[0].message).to.be.a('string');
-            expect(res.body.data[0].status).to.equal('sent');
-            done();
-          });
-      });
+        .request(app)
+        .post('/api/v1/messages')
+        .set('authorization', userToken)
+        .send(validPostData[0])
+        .end((err, res) => {
+          res.should.have.status(201);
+          res.body.should.be.a('object');
+          res.body.should.have.property('status');
+          res.body.should.have.property('data');
+          expect(res.body.status).to.equal(201);
+          expect(res.body.data).to.be.a('object');
+          expect(res.body.data.status).to.equal('sent');
+          done();
+        });
     });
+  });
+
     describe('Sending an email with empty subject', () => {
       it('should return status code 400 and send an error message', (done) => {
         chai
-          .request(app)
-          .post('/api/v1/messages')
-          .send(invalidPost[0])
-          .end((err, res) => {
-            res.should.have.status(400);
-            res.body.should.be.a('object');
-            res.body.should.have.property('status');
-            res.body.should.have.property('error');
-            expect(res.body.status).to.equal(400);
-            expect(res.body.error).to.equal('Subject is required');
-            done();
+        .request(app)
+        .post('/api/v1/messages')
+        .set('authorization', userToken)
+        .send(invalidPost[0])
+        .end((err, res) => {
+          res.should.have.status(400);
+          res.body.should.be.a('object');
+          res.body.should.have.property('status');
+          res.body.should.have.property('error');
+          expect(res.body.status).to.equal(400);
+          expect(res.body.error).to.equal('Subject is required');
+          done();
           });
       });
     });
     describe('Sending an email with empty message', () => {
       it('should return status code 400 and send an error message', (done) => {
         chai
-          .request(app)
-          .post('/api/v1/messages')
-          .send(invalidPost[1])
-          .end((err, res) => {
-            res.should.have.status(400);
-            res.body.should.be.a('object');
-            res.body.should.have.property('status');
-            res.body.should.have.property('error');
-            expect(res.body.status).to.equal(400);
-            expect(res.body.error).to.equal('Message is required');
-            done();
+        .request(app)
+        .post('/api/v1/messages')
+        .set('authorization', userToken)
+        .send(invalidPost[1])
+        .end((err, res) => {
+          res.should.have.status(400);
+          res.body.should.be.a('object');
+          res.body.should.have.property('status');
+          res.body.should.have.property('error');
+          expect(res.body.status).to.equal(400);
+          expect(res.body.error).to.equal('Message is required');
+          done();
           });
       });
     });

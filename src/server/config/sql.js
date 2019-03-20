@@ -1,0 +1,10 @@
+export const createUser = 'INSERT INTO users (firstname,lastname,email, password) VALUES ($1, $2, $3, $4) returning *';
+export const findUserById = 'SELECT * FROM users WHERE id = $1';
+export const queryUsersByEmail = 'SELECT * FROM users where email = $1';
+export const sendMessage = 'INSERT INTO messageTable (subject, message, parentmessageid, status) VALUES ($1, $2, $3, $4) returning *';
+export const findUserByEmail = 'SELECT * FROM users WHERE email = $1';
+export const populateSent = 'INSERT INTO sentmessagestable (messageId, senderId) VALUES ($1, $2) returning *';
+export const populateInbox = 'INSERT INTO receivedmessagestable (messageId, receiverId) VALUES ($1, $2) returning *';
+export const findMessageById = 'SELECT * FROM messageTable WHERE id = $1';
+export const allReceivedMessages = 'SELECT * FROM messageTable LEFT JOIN receivedmessagestable ON message.Id = receivedmessagestable.messageId WHERE receivedmessagestable.receiverId = $1';
+export const unreadMessages = 'SELECT * FROM messageTable LEFT JOIN receivedmessagestable ON message.Id = receivedmessagestable.messageId WHERE (receivedmessagestable.receiverId, messages.status) = ($1, $2)';

@@ -1,12 +1,35 @@
 import jwt from 'jsonwebtoken';
 
-class Helper {
-  static generateToken(user) {
+export const generateToken = (id) => {
     const token = jwt.sign({
-      user,
+      id,
     },
     process.env.SECRET, { expiresIn: '24hrs' });
     return token;
-  }
-}
-export default Helper;
+  };
+
+  export const verifyToken = (req, res, next) => {
+    const token = req.headers.authorization || req.body.token;
+    if (!token) {
+      return res.status(403).json({
+        status: 403,
+        error: 'No token provided',
+      });
+    }
+    jwt.verify(token, process.env.SECRET, (error, authData) => {
+      if (error) {
+        if (error.message.includes('signature')) {
+          return res.status(403).json({
+            status: 403,
+            error: 'No token provided',
+          });
+        }
+        return res.status(403).json({
+          error,
+        });
+      }
+      req.authData = authData;
+      return next();
+    });
+  };
+
