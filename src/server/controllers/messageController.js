@@ -1,23 +1,57 @@
-import messages from '../data/messageDb';
+import db from "../config/index";
+import {
+  sendMessage, findUserByEmail, populateSent, populateInbox,allReceivedMessages
+} from '../config/sql';
+import messages from '../database/messageDb';
+
+const email = [messages];
 
 class MessageController {
-  // Get all emails
-  static getAllMessages(req, res) {
-    const read = messages.filter(message => message.status === 'read');
-    const unread = messages.filter(message => message.status === 'unread');
-    if (read.length === 0 || unread.length === 0) {
-      return res.status(404).json({
-        status: 404,
-        error: 'No received emails',
+  
+  static async sendEmail(req, res) {
+    const {
+      subject, message, status, email, parentmessageid,
+    } = req.body;
+
+    const { id } = req.authData.id;
+    try {
+      if (status === 'draft') {
+        const params = [subject, message, parentmessageid, id, status];
+        const { rows } = await db.query(sendMessage, params);
+        return res.status(201).json({
+          status: 201,
+          data: [rows[0]],
         });
       }
-    return res.status(200).json({
-      status: 200,
-      data: [...unread, ...read],
-    });
+      const receiver = await db.query(findUserByEmail, [email]);
+      if (!receiver.rows[0]) {
+        return res.status(404).json({
+          status: 404,
+          error: 'User does not exist',
+        });
+      }
+      const values = [subject, message, parentmessageid, id, 'sent'];
+      const { rows } = await db.query(sendMessage, values);
+
+      // persisting into sent table
+      const sent = [rows[0].id, id];
+      await db.query(populateSent, sent);
+
+      // persisting into inbox table
+      const inboxValues = [rows[0].id, receiver.rows[0].id];
+      await db.query(populateInbox, inboxValues);
+      return res.status(201).json({
+        status: 201,
+        data: rows[0],
+      });
+    } catch (error) {
+      res.status(500).json({
+        status: 500,
+        error: error.message,
+      });
+    }
   }
 
-  // Get a specific email.
   static getSpecificEmail(req, res) {
     const foundEmail = messages.find(message => message.id === Number(req.params.messageId));
     if (!foundEmail) {
@@ -32,7 +66,28 @@ class MessageController {
     });
   }
 
-  // Get all sent emails
+  static async getAllMessages(req, res) {
+    const { id } = req.authData.id;
+    try {
+      const { rows, rowCount } = await db.query(allReceivedMessages, [id]);
+      if (rowCount === 0) {
+        return res.status(404).json({
+          status: 404,
+          error: 'There are no received messages yet',
+        });
+      }
+      return res.status(200).json({
+        status: 200,
+        data: rows,
+      });
+    } catch (error) {
+      res.status(500).json({
+        status: 500,
+        error: error.message,
+      });
+    }
+  }
+
   static getSentEmail(req, res) {
     const sent = messages.filter(message => message.status === 'sent');
     if (sent.length === 0) {
@@ -47,60 +102,43 @@ class MessageController {
     });
   }
 
-  // Get all unread messages
-  static getUnreadEmail(req, res) {
-    const unread = messages.filter(message => message.status === 'unread');
-    if (unread.length === 0) {
-      return res.status(404).json({
-        status: 404,
-        error: 'No unread emails',
-        data: 'unread',
+  static async getUnreadEmail(req, res) {
+    const { id } = req.authData.id;
+    try {
+      const { rows, rowCount } = await db.query(unreadMessages, [id, 'unread']);
+      if (rowCount === 0) {
+        return res.status(404).json({
+          status: 404,
+          error: 'No unread messages',
+        });
+      }
+      return res.status(200).json({
+        status: 200,
+        data: rows,
+      });
+    } catch (error) {
+      res.status(500).json({
+        status: 500,
+        error: error.message,
       });
     }
-    return res.status(200).json({
-      status: 200,
-      data: unread,
-    });
   }
 
-  // Send an email
-  static sendEmail(req, res) {
-    const newMessage = {
-      id: messages[messages.length - 1].id + 1,
-      createdOn: new Date().toUTCString(),
-      subject: req.body.subject,
-      message: req.body.message,
-      senderId: 1,
-      receiverId: messages.length - 1,
-      parentMessageId: messages.length + 1,
-      status: 'sent',
-    };
-    messages.push(newMessage);
-    return res.status(201).json({
-      status: 201,
-      data: [newMessage],
-    });
-  }
-
-  // Delete an email
   static deleteEmail(req, res) {
-    const email = messages.find(message => message.id === Number(req.params.messageId));
-    if (!email) {
-      return res.status(404).json({
-        status: 404,
-        error: 'The message id was not found!',
-      });
-    }
-    const index = messages.indexOf(email);
+    const { foundEmail } = req.body;
+    const index = messages.indexOf(foundEmail);
     messages.splice(index, 1);
     return res.status(200).json({
       status: 200,
-      data: [{
-        message: 'Email has been successfully deleted',
-      }],
+      data: [
+        {
+          message: 'Email has been successfully deleted',
+        },
+      ],
     });
   }
 }
+
 
 export const {
   getAllMessages, getSentEmail, getUnreadEmail, sendEmail,
