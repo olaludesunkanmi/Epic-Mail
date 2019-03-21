@@ -9,7 +9,8 @@ export const generateToken = (id) => {
   };
 
   export const verifyToken = (req, res, next) => {
-    const token = req.headers.authorization || req.body.token;
+    // const token = req.headers.authorization || req.body.token;
+    const token = req.headers.token;
     if (!token) {
       return res.status(403).json({
         status: 403,

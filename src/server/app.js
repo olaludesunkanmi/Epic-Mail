@@ -3,6 +3,8 @@ import express from "express";
 import bodyParser from "body-parser";
 import userRouter from './routes/users';
 import messageRouter from './routes/messages';
+import groupRouter from './routes/group';
+
 
 
 const PORT = process.env.PORT || 3000;
@@ -14,6 +16,7 @@ app.use(bodyParser.json());
 
 app.use('/api/v1/auth', userRouter);
 app.use('/api/v1/messages', messageRouter);
+app.use('/api/v1/groups', groupRouter);
 
 app.get('/', (req, res) => {
   return res.status(200).json({
@@ -28,7 +31,7 @@ app.get('/', (req, res) => {
 
 // Handle non existing route with with proper message
 app.all('*', (req, res) => res.status(404).json({
-  status: 404,
+  status: 401,
   error: 'Route does not exist',
 }));
 

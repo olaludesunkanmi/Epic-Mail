@@ -33,8 +33,8 @@ class UserController {
         });
       }
     } catch (error) {
-      return res.status(500).json({
-        status: 500,
+      return res.status(404).json({
+        status: 404,
         error: error.message,
       });
     }
@@ -67,8 +67,8 @@ class UserController {
         }
       }
     } catch (error) {
-      res.status(500).json({
-        status: 500,
+      res.status(404).json({
+        status: 404,
         error: error.message,
       });
     }
